@@ -1,4 +1,14 @@
+ARG SOURCE
+ARG REVISION
+ARG CREATED
+ARG VERSION
+
 FROM alpine:edge
+
+ARG SOURCE
+ARG REVISION
+ARG CREATED
+ARG VERSION
 
 RUN apk update && apk add --no-cache \
     bind-tools \
@@ -11,5 +21,7 @@ CMD ["/bin/sh"]
 
 LABEL org.opencontainers.image.title="bind-tools" \
     org.opencontainers.image.description="bind-tools in Docker" \ 
-    org.opencontainers.image.url="https://github.com/westonsteimel/docker-bind-tools" \ 
-    org.opencontainers.image.source="https://github.com/westonsteimel/docker-bind-tools"
+    org.opencontainers.image.source="${SOURCE}" \
+    org.opencontainers.image.revision="${REVISION}" \
+    org.opencontainers.image.created="${CREATED}" \
+    org.opencontainers.image.version="${VERSION}"
